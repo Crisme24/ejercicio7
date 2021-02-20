@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Asignaturas!{% endblock %}
+
+{% block body %}
+<main class="app-content">
+    <div class="app-title text-center">
+        {%  if asignatura %}
+            <h3>Asignatura</h3>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Asignatura</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{asignatura.id}}</td>
+                                    <td>{{asignatura.nombre}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}
