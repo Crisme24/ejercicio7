@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presupuesto index{% endblock %}
+
+{% block body %}
+    <h1>Presupuesto index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Cantidad</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>ValidoHasta</th>
+                <th>Informacion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for presupuesto in presupuestos %}
+            <tr>
+                <td>{{ presupuesto.id }}</td>
+                <td>{{ presupuesto.numero }}</td>
+                <td>{{ presupuesto.fecha ? presupuesto.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ presupuesto.concepto }}</td>
+                <td>{{ presupuesto.cantidad }}</td>
+                <td>{{ presupuesto.price }}</td>
+                <td>{{ presupuesto.total }}</td>
+                <td>{{ presupuesto.validoHasta ? presupuesto.validoHasta|date('Y-m-d') : '' }}</td>
+                <td>{{ presupuesto.Informacion }}</td>
+                <td>
+                    <a href="{{ path('presupuesto_show', {'id': presupuesto.id}) }}">show</a>
+                    <a href="{{ path('presupuesto_edit', {'id': presupuesto.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('presupuesto_new') }}">Create new</a>
+{% endblock %}

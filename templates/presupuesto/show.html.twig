@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presupuesto{% endblock %}
+
+{% block body %}
+    <h1>Presupuesto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ presupuesto.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ presupuesto.numero }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ presupuesto.fecha ? presupuesto.fecha|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Concepto</th>
+                <td>{{ presupuesto.concepto }}</td>
+            </tr>
+            <tr>
+                <th>Cantidad</th>
+                <td>{{ presupuesto.cantidad }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ presupuesto.price }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ presupuesto.total }}</td>
+            </tr>
+            <tr>
+                <th>ValidoHasta</th>
+                <td>{{ presupuesto.validoHasta ? presupuesto.validoHasta|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Informacion</th>
+                <td>{{ presupuesto.Informacion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('presupuesto_index') }}">back to list</a>
+
+    <a href="{{ path('presupuesto_edit', {'id': presupuesto.id}) }}">edit</a>
+
+    {{ include('presupuesto/_delete_form.html.twig') }}
+{% endblock %}
